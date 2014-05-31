@@ -1,0 +1,35 @@
+#require.js
+//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.js
+
+# jquery
+//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js
+
+# underscore.js
+//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js
+
+# hogan.js
+//cdnjs.cloudflare.com/ajax/libs/hogan.js/3.0.0/hogan.js
+
+# foundation
+//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.3/css/foundation.css
+//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.3/css/normalize.css
+//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.3/js/foundation/foundation.js
+//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.3/js/foundation/foundation.abide.js
+
+# jqueryui
+//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js
+
+# backbone.js
+//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone.js
+
+# backbone.marionette
+//cdnjs.cloudflare.com/ajax/libs/backbone.marionette/1.8.0/backbone.marionette.js
+
+# backbone-localstorage.js
+//cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.7/backbone.localStorage.js
+
+# backbone.syphon
+//cdnjs.cloudflare.com/ajax/libs/backbone.syphon/0.4.1/backbone.syphon.min.js
+
+#d3
+//cdnjs.cloudflare.com/ajax/libs/d3/3.4.8/d3.js
