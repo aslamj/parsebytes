@@ -1,0 +1,18 @@
+<form id="parsebytes-form">
+  <label>Data Type</label>
+  <select id="data-types-select">
+      {{#datatypes}}
+      <option value="{{datatype}}" {{#isSelected}}selected{{/isSelected}}>{{datatype}}</option>
+      {{/datatypes}}
+  </select>
+
+  <label>Data</label>
+  <textarea id="data-textarea" value="{{data}}">
+  </textarea>
+
+  <label>Results</label>
+  <textarea id="results-textarea" value="{{results}}">
+  </textarea>
+
+  <input type="submit" id="submit" value="Submit">
+</form>

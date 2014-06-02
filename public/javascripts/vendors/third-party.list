@@ -1,6 +1,9 @@
 #require.js
 //cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.js
 
+#require-text
+//cdnjs.cloudflare.com/ajax/libs/require-text/2.0.10/text.js
+
 # jquery
 //cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js
 

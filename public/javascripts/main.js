@@ -3,6 +3,7 @@ require.config({
   paths: {
     'jquery': 'vendors/jquery/jquery',
     'underscore': 'vendors/underscore.js/underscore',
+    'text': 'vendors/require-text/text',
     'hogan': 'vendors/hogan.js/hogan',
     'backbone': 'vendors/backbone.js/backbone',
     'backbone.syphon': 'vendors/backbone.syphon/backbone.syphon',
@@ -14,7 +15,7 @@ require.config({
       exports: '_'
     },
     'hogan': {
-      deps: [ 'template' ],
+      //deps: [ 'template' ],
       exports: 'Hogan'
     },
     'backbone': {
@@ -37,9 +38,15 @@ require.config({
 });
 
 require([
-  "jquery",
-  "backbone"
-], function($, Backbone) {
-  $("body").find("#parsebytes_ui").html("ParseBytes.net");
+  'jquery',
+  'parseBytesModel',
+  'parseBytesView'
+], function($, ParseBytesModel, ParseBytesView) {
+  //$("body").find("#parsebytes_ui").html("ParseBytes.net");
 
+  var view = new ParseBytesView({
+    model: new ParseBytesModel()
+  });
+
+  view.render();
 });
