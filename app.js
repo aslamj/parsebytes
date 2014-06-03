@@ -35,6 +35,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 //app.get('/api', api.api);
+app.resource('api/datatypes', require('./resources/datatypes'));
 app.resource('api/parsebytes', require('./resources/parsebytes'));
 
 http.createServer(app).listen(app.get('port'), function(){

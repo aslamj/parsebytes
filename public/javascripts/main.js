@@ -40,13 +40,17 @@ require.config({
 require([
   'jquery',
   'parseBytesModel',
+  'datatypesCollection',
   'parseBytesView'
-], function($, ParseBytesModel, ParseBytesView) {
+], function($, ParseBytesModel, DatatypesCollection, ParseBytesView) {
   //$("body").find("#parsebytes_ui").html("ParseBytes.net");
 
   var view = new ParseBytesView({
-    model: new ParseBytesModel()
+    model: {
+      parseBytes: new ParseBytesModel(),
+      datatypes: new DatatypesCollection()
+    }
   });
 
-  view.render();
+  //view.render();
 });
