@@ -7,6 +7,11 @@
 //PATCH   /parsebytes/:parsebyte        ->  patch
 //DELETE  /parsebytes/:parsebyte        ->  destroy
 
+var uuid = require('node-uuid');
+var fs = require('fs');
+var sys = require('sys');
+var exec = require('child_process').exec;
+
 exports.index = function(req, res){
   console.log("GET (index): " + JSON.stringify(req.headers));
 
@@ -22,7 +27,34 @@ exports.new = function(req, res){
 exports.create = function(req, res){
   console.log("POST (create): " + JSON.stringify(req.headers) + "\n" + JSON.stringify(req.body));
 
-  res.send('create parsebytes ' + req.params.parsebytes);
+  var clientIP = req.headers['x-forwarded-for'] || 
+    req.connection.remoteAddress || 
+    req.socket.remoteAddress ||
+    req.connection.socket.remoteAddress;
+  var guid =uuid.v1();
+  var filename = './tmp/data/'+ clientIP + '_' + guid;
+
+  fs.writeFile(filename, req.body.data, function(error) {
+    if (error) { throw error; }
+    console.log(filename + ' saved successfully');
+
+    var  osslTool = 'x509';
+
+    var cmd = 'openssl ' + osslTool + ' -inform PEM -in ' + filename + ' -text -noout';
+
+    exec(cmd, function(error, stdout, stderr) {
+      sys.puts(stdout);
+      var output = {
+        'results': stdout
+      };
+      res.send(JSON.stringify(output));
+
+      // delete temp data file
+      fs.unlink(filename);
+    });
+  });
+
+  //res.send('create parsebytes ' + clientIP);
 };
 
 exports.show = function(req, res){

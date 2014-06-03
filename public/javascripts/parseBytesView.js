@@ -22,6 +22,7 @@ define([
 
     initialize: function() {
       this.model.datatypes.on("sync", this.render, this);
+      this.model.parseBytes.on("sync", this.render, this);
 
       this.model.datatypes.fetch();
 
@@ -29,9 +30,14 @@ define([
     },
 
     render: function() {
+      var data = new Object();
+      data.datatypes = this.model.datatypes.toJSON();
+      data.data = this.model.parseBytes.get('data');
+      data.results = this.model.parseBytes.get('results');
+      console.log(JSON.stringify(data));
+
       var template = Hogan.compile(parseBytesForm);
-      this.datatypes = this.model.datatypes.toJSON();
-      this.$el.html(template.render(this));
+      this.$el.html(template.render(data));
 
       return this;
     },
@@ -45,7 +51,7 @@ define([
       this.model.parseBytes.set('data', this.$el.find('#data-textarea').val());
       this.model.parseBytes.save({}, {
         success: function(model, response) {
-          console.log("post succeeded");
+          console.log("post succeeded, response: " + JSON.stringify(response));
         },
         error: function(model, response) {
           console.log("error in posting");

@@ -2,3 +2,4 @@ public/javascripts/vendors/*
 !public/javascripts/vendors/third-party.*
 node_modules/*
 npm-debug.log
+tmp/*
