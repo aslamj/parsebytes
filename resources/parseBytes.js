@@ -34,23 +34,35 @@ exports.create = function(req, res){
   var guid =uuid.v1();
   var filename = './tmp/data/'+ clientIP + '_' + guid;
 
+  req.body.data = req.body.data.trim();
   fs.writeFile(filename, req.body.data, function(error) {
     if (error) { throw error; }
     console.log(filename + ' saved successfully');
 
-    var  osslTool = 'x509';
+    var  osslTool = '';
+    if (req.body.data.indexOf('-----BEGIN CERTIFICATE REQUEST-----') >= 0) {
+      osslTool = 'req';
+    } else if (req.body.data.indexOf('-----BEGIN CERTIFICATE-----') >= 0) {
+      osslTool = 'x509';
+    } else {
+      res.send(JSON.stringify({'results': 'Bad input'}));
+      return;
+    }
 
     var cmd = 'openssl ' + osslTool + ' -inform PEM -in ' + filename + ' -text -noout';
+    console.log(cmd);
 
     exec(cmd, function(error, stdout, stderr) {
-      sys.puts(stdout);
+      sys.puts('error: ' + error);
+      sys.puts('stdout: ' + stdout);
+      sys.puts('stderr: ' + stderr);
       var output = {
-        'results': stdout
+        'results': (stdout.length > 0) ? stdout : stderr
       };
       res.send(JSON.stringify(output));
 
       // delete temp data file
-      fs.unlink(filename);
+      //fs.unlink(filename);
     });
   });
 
