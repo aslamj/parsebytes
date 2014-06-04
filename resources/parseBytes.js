@@ -44,6 +44,8 @@ exports.create = function(req, res){
       osslTool = 'req';
     } else if (req.body.data.indexOf('-----BEGIN CERTIFICATE-----') >= 0) {
       osslTool = 'x509';
+    } else if (req.body.data.indexOf('-----BEGIN RSA PRIVATE KEY-----') >= 0) {
+      osslTool = 'rsa';
     } else {
       res.send(JSON.stringify({'results': 'Bad input'}));
       return;
@@ -57,12 +59,12 @@ exports.create = function(req, res){
       sys.puts('stdout: ' + stdout);
       sys.puts('stderr: ' + stderr);
       var output = {
-        'results': (stdout.length > 0) ? stdout : stderr
+        'results': (stdout.trim().length > 0) ? stdout.trim() : stderr.trim()
       };
       res.send(JSON.stringify(output));
 
       // delete temp data file
-      //fs.unlink(filename);
+      fs.unlink(filename);
     });
   });
 
