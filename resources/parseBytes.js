@@ -33,10 +33,16 @@ exports.create = function(req, res){
     req.connection.socket.remoteAddress;
   var guid =uuid.v1();
   var filename = './tmp/data/'+ clientIP + '_' + guid;
+  console.log(filename);
 
   req.body.data = req.body.data.trim();
   fs.writeFile(filename, req.body.data, function(error) {
-    if (error) { throw error; }
+    if (error) {
+      console.log(error);
+      res.send(JSON.stringify({'results': error}));
+      return;
+    }
+
     console.log(filename + ' saved successfully');
 
     var  osslTool = '';

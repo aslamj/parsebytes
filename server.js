@@ -16,7 +16,8 @@ var app = express();
 app.engine('html', require('hogan-express'));
 
 // all environments
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
+app.set('ip', process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.use(express.favicon());
@@ -36,8 +37,8 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 //app.get('/api', api.api);
 app.resource('api/datatypes', require('./resources/datatypes'));
-app.resource('api/parsebytes', require('./resources/parsebytes'));
+app.resource('api/parsebytes', require('./resources/parseBytes'));
 
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(app.get('port'), app.get('ip'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
