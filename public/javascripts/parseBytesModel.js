@@ -14,7 +14,11 @@ define([
     urlRoot: '/api/parsebytes',
 
     defaults: function() {
-      return [];
+      return {
+        'dataype': '',
+        'data': '',
+        'results': ''
+      };
     },
 
     parse: function(response) {
