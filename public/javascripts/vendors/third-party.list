@@ -13,6 +13,9 @@
 # hogan.js
 //cdnjs.cloudflare.com/ajax/libs/hogan.js/3.0.0/hogan.js
 
+#modernizr
+//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js
+
 # foundation
 //cdnjs.cloudflare.com/ajax/libs/foundation/5.2.3/css/foundation.css
 //cdnjs.cloudflare.com/ajax/libs/foundation/5.2.3/css/normalize.css

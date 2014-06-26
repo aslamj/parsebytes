@@ -1,20 +1,63 @@
-<form id="parsebytes-form">
-  <label>Data Type</label>
-  <select id="datatypes-select">
-      {{#datatypes}}
-      <option value="{{datatype}}" {{#isSelected}}selected{{/isSelected}}>{{datatype}}</option>
-      {{/datatypes}}
-  </select>
+<div class="row form">
+  <form id="parsebytes-form">
+    <div class="row">
+      <h2><u>ParseBytes.net</u></h2>
+      <h5>An online tool to parse bytes and see what's inside. These bytes can be a file content or hex data (packets).</h5>
+    </div>
 
-  <label>Data</label>
-  <textarea id="data-textarea">
-  {{data}}
-  </textarea>
+    </br>
+    </br>
 
-  <label>Results</label>
-  <textarea id="results-textarea">
-  {{results}}
-  </textarea>
+    <div class="input">
+      <div class="row">
+        <div class="small-2 columns">
+          <label class="left inline">Data Type:</label>
+        </div>
+        <div class="small-10 columns">
+          <select id="datatypes-select">
+            {{#datatypes}}
+            <option value="{{datatype}}" {{#isSelected}}selected{{/isSelected}}>{{datatype}}</option>
+            {{/datatypes}}
+          </select>
+        </div>
+      </div>
 
-  <input type="submit" id="submit" value="Submit">
-</form>
+      <div class="row">
+        <div class="small-12 columns">
+          <label class="left inline">Data:</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <textarea class="data" id="data-textarea">
+            {{data}}
+          </textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 columns">
+          <input class="right inline button" type="submit" id="submit" value="Submit">
+        </div>
+      </div>
+    </div>
+
+    </br>
+    </br>
+
+    <div class="output">
+      <div class="row">
+        <div class="small-12 columns">
+          <label class="left inline">Results:</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <textarea class="results" id="results-textarea">
+            {{results}}
+          </textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,8 +1,46 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #F8F8FF;
 }
 
 a {
   color: #00B7FF;
+}
+
+div.input {
+  border-style: groove;
+  border-width: 10px;
+  padding: 5px;
+  background-color: #F0F8FF;
+}
+
+div.output {
+  border-style: ridge;
+  border-width: 10px;
+  padding: 5px;
+  background-color: #F0F8FF;
+}
+
+label {
+}
+
+select {
+  width: 120px;
+}
+
+textarea.data {
+  height: 200px;
+}
+
+textarea.results {
+  height: 300px;
+}
+
+textarea.data {
+    background-color: #FFFAF0;
+}
+
+textarea.results {
+  background-color: #F0FFF0;
 }

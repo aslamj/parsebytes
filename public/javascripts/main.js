@@ -5,6 +5,9 @@ require.config({
     'underscore': 'vendors/underscore.js/underscore',
     'text': 'vendors/require-text/text',
     'hogan': 'vendors/hogan.js/hogan',
+    'modernizr': 'vendors/modernizr/modernizr',
+    'foundation': 'vendors/foundation/foundation',
+    'foundation.core': 'vendors/foundation/foundation',
     'backbone': 'vendors/backbone.js/backbone',
     'backbone.syphon': 'vendors/backbone.syphon/backbone.syphon',
     'backbone.localStorage': 'vendors/backbone-localstorage.js/backbone.localStorage',
@@ -17,6 +20,16 @@ require.config({
     'hogan': {
       //deps: [ 'template' ],
       exports: 'Hogan'
+    },
+    'modernizr': {
+        exports: 'Modernizr'
+    },
+    'foundation.core': {
+        deps: [
+            'jquery',
+            'modernizr'
+        ],
+        exports: 'Foundation'
     },
     'backbone': {
       deps: [ 'underscore', 'jquery'],
@@ -39,11 +52,14 @@ require.config({
 
 require([
   'jquery',
+  'foundation',
   'parseBytesModel',
   'datatypesCollection',
   'parseBytesView'
-], function($, ParseBytesModel, DatatypesCollection, ParseBytesView) {
+], function($, foundation, ParseBytesModel, DatatypesCollection, ParseBytesView) {
   //$("body").find("#parsebytes_ui").html("ParseBytes.net");
+
+  $(document).foundation();
 
   var view = new ParseBytesView({
     model: {
