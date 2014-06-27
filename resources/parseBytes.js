@@ -50,8 +50,16 @@ exports.create = function(req, res){
       osslTool = 'req';
     } else if (req.body.data.indexOf('-----BEGIN CERTIFICATE-----') >= 0) {
       osslTool = 'x509';
+    } else if (req.body.data.indexOf('-----BEGIN X509 CRL-----') >= 0) {
+      osslTool = 'crl';
+    } else if (req.body.data.indexOf('-----BEGIN PKCS7-----') >= 0) {
+      osslTool = 'pkcs7';
+    } else if (req.body.data.indexOf('-----BEGIN PKCS12-----') >= 0) {
+      osslTool = 'pkcs12';
     } else if (req.body.data.indexOf('-----BEGIN RSA PRIVATE KEY-----') >= 0) {
       osslTool = 'rsa';
+    } else if (req.body.data.indexOf('-----BEGIN DSA PRIVATE KEY-----') >= 0) {
+      osslTool = 'dsa';
     } else {
       res.send(JSON.stringify({'results': 'Bad input'}));
       return;
