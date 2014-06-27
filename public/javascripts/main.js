@@ -1,16 +1,16 @@
 require.config({
   //baseUrl: '/',
   paths: {
-    'jquery': 'vendors/jquery/jquery',
-    'underscore': 'vendors/underscore.js/underscore',
-    'text': 'vendors/require-text/text',
-    'hogan': 'vendors/hogan.js/hogan',
-    'modernizr': 'vendors/modernizr/modernizr',
-    'foundation': 'vendors/foundation/foundation',
-    'backbone': 'vendors/backbone.js/backbone',
-    'backbone.syphon': 'vendors/backbone.syphon/backbone.syphon',
-    'backbone.localStorage': 'vendors/backbone-localstorage.js/backbone.localStorage',
-    'backbone.marionette': 'vendors/backbone.marionette/backbone.marionette',
+    'jquery': '/vendors/jquery/jquery',
+    'underscore': '/vendors/underscore.js/underscore',
+    'text': '/vendors/require-text/text',
+    'hogan': '/vendors/hogan.js/hogan',
+    'modernizr': '/vendors/modernizr/modernizr',
+    'foundation': '/vendors/foundation/foundation',
+    'backbone': '/vendors/backbone.js/backbone',
+    'backbone.syphon': '/vendors/backbone.syphon/backbone.syphon',
+    'backbone.localStorage': '/vendors/backbone-localstorage.js/backbone.localStorage',
+    'backbone.marionette': '/vendors/backbone.marionette/backbone.marionette',
   },
   shim: {
     'underscore': {
