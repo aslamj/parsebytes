@@ -3,4 +3,6 @@ Parse Bytes
 
 Online Bytes Parser
 
-Demo: http://parsebytes-jaslam.rhcloud.com/
+Demo: 
+http://www.parsebytes.net/
+http://parsebytes-jaslam.rhcloud.com/
